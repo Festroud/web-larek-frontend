@@ -32,7 +32,7 @@ export interface ICart {
 
 // ===== Интерфейсы модели =====
 export interface IProductModel {
-  loadProducts(): Promise<void>;
+  setProducts(products: ICardProduct[]): void;
   getProducts(): ICardProduct[];
   getProductById(id: string): ICardProduct | undefined;
 }
@@ -59,16 +59,12 @@ export interface IFormModel {
 }
 
 export interface IOrderModel {
-  submitOrder(
-    products: ICardProduct[],
-    cart: ICartModel,
-    form: IFormModel
-  ): Promise<void>;
+  submitOrder(order: IOrderRequest): Promise<void>;
 }
 
 // ===== Интерфейсы представления =====
 export interface ICatalog {
-  addCard(card: HTMLElement): void;
+  addCard(card: HTMLElement[]): void;
   clear(): void;
 }
 
